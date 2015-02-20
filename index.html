@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Aman Biswas">
+	<meta name="description" content="Simple checklist to get stuff done.">
+
+	<title>Clipboard | Getting sh*t done, since 1921</title>
+
+	<link rel="stylesheet" type="text/css" href-"css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+	<form action="#">
+    	<input type="text" id="itemInput" onkeypress="handle" />
+	</form>
+
+	<h3>Clipboard</h3>
+	<ol id="checklist">
+	</ol>
+
+	<script>
+		var tasks = [
+		   "The Hobbit",
+		   "Americanah",
+		   "The Stranger"
+		];
+
+		var title = "";
+		var html = "";
+
+		for (var i = 0; i < tasks.length; i++) {
+		    html += "<li>" + tasks[i]+ "</li>";
+		}
+		    
+		document.getElementById("checklist").innerHTML = html;
+
+		document.getElementById("itemInput").onkeypress = function handle(e){
+		    if(e.keyCode === 13) {
+		        checklist();
+		        return false;
+		    }
+		};
+
+		function checklist() {
+		    document.getElementById("itemInput").style.backgroundColor = "red";
+		    title = document.getElementById("itemInput").value;
+		    tasks.push(title);
+		    alert(title + " submitted!");
+		    
+		    html += "<li>" + tasks[tasks.length - 1]+ "</li>";
+		    document.getElementById("checklist").innerHTML = html;
+		    document.getElementById("itemInput").value = "";
+		}
+	</script>
+
+</body>
+</html>
