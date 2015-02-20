@@ -12,47 +12,60 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
+	
 	<form action="#">
     	<input type="text" id="itemInput" onkeypress="handle" />
 	</form>
 
-	<h3>Clipboard</h3>
-	<ol id="checklist">
-	</ol>
+	<h3>What's on the Clipboard?</h3>
+	<ul id="container"></ul>
 
+	<h3>Completed items</h3>
+	<ul id="completed"></ul>
+	
 	<script>
-		var tasks = [
-		   "The Hobbit",
-		   "Americanah",
-		   "The Stranger"
-		];
+		var list = document.getElementById('container');
+		var completed = document.getElementById('completed');
 
-		var title = "";
-		var html = "";
+		function newTask() {
+			var checkbox = document.createElement('input');
+			checkbox.type = "checkbox";
+			checkbox.name = "name";
+			checkbox.value = "value";
+			//checkbox.id = "id";
 
-		for (var i = 0; i < tasks.length; i++) {
-		    html += "<li>" + tasks[i]+ "</li>";
-		}
+			var label = document.createElement('label');
+			label.htmlFor = "id";
+
+			var description = document.getElementById('itemInput').value;
+			label.appendChild(checkbox);
+			label.appendChild(document.createTextNode(description));
 		    
-		document.getElementById("checklist").innerHTML = html;
+		    var entry = document.createElement('li');
+		    entry.appendChild(label)
+			list.appendChild(entry);
+		    document.getElementById('itemInput').value = '';
+
+		    checkbox.onclick = function() {
+			    if(checkbox.checked === true) {
+		            alert("Congrats for finishing the task!");
+		            list.removeChild(entry);
+		            completed.appendChild(entry);
+			    } else if(checkbox.checked === false) {
+			    	alert("Added task back.");
+	            	completed.removeChild(entry);
+	            	list.appendChild(entry);
+			    }
+
+			}
+		}
 
 		document.getElementById("itemInput").onkeypress = function handle(e){
 		    if(e.keyCode === 13) {
-		        checklist();
-		        return false;
+		    	newTask();
+		    	return false;
 		    }
 		};
-
-		function checklist() {
-		    document.getElementById("itemInput").style.backgroundColor = "red";
-		    title = document.getElementById("itemInput").value;
-		    tasks.push(title);
-		    alert(title + " submitted!");
-		    
-		    html += "<li>" + tasks[tasks.length - 1]+ "</li>";
-		    document.getElementById("checklist").innerHTML = html;
-		    document.getElementById("itemInput").value = "";
-		}
 	</script>
 
 </body>
