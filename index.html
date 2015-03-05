@@ -57,6 +57,7 @@
 		    entry.appendChild(label)
 		    //Push entry to tasks array
 		    tasks.push([id, entry]);
+		    alert("Number of tasks: " + tasks.length);
 		    checkbox.id = id;
 		    label.htmlFor = id;
 		    id++;
@@ -114,11 +115,13 @@
 		function updateNumTask() {
 			if(tasks.length === 0) {
 				document.getElementById('numTask').innerHTML = "No";
-			} else if(done.length === 0) {
-				document.getElementById('numDone').innerHTML = "No";
 			} else {
 				document.getElementById('numTask').innerHTML = tasks.length;
 				document.getElementById('numDone').innerHTML = done.length;
+			}
+
+			if(done.length === 0) {
+				document.getElementById('numDone').innerHTML = "No";
 			}
 		}
 
