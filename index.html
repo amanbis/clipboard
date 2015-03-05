@@ -8,24 +8,35 @@
 
 	<title>Clipboard | Getting sh*t done, since 1921</title>
 
-	<link rel="stylesheet" type="text/css" href-"css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	
+
+<header class="container">
+	<h1 class="header-title">Clipboard</h1>
+</header>
+		
+<section class="enterTask container">
 	<form action="#">
-    	<input type="text" id="itemInput" onkeypress="handle" />
+    	<input type="text" id="itemInput" placeholder="Add a task..." onkeypress="handle" />
 	</form>
+</section>
 
-	<h3><span id="numTask">No</span> tasks on the Clipboard</h3>
-	<ul id="container"></ul>
+<section class="container">
+	<h2><span id="numTask">No</span> tasks on the clipboard</h2>
+	<ul id="current"></ul>
+</section>
 
-	<h3><span id="numDone">No</span> completed items</h3>
+<section class="container">
+	<h2><span id="numDone">No</span> completed items</h2>
 	<ul id="completed"></ul>
+</section>
 	
 	<script>
 		//Save the unordered list elements
-		var list = document.getElementById('container');
+		var list = document.getElementById('current');
 		var completed = document.getElementById('completed');
 		var tasks = [];
 		var done= [];
@@ -117,11 +128,12 @@
 				document.getElementById('numTask').innerHTML = "No";
 			} else {
 				document.getElementById('numTask').innerHTML = tasks.length;
-				document.getElementById('numDone').innerHTML = done.length;
 			}
 
 			if(done.length === 0) {
 				document.getElementById('numDone').innerHTML = "No";
+			} else {
+				document.getElementById('numDone').innerHTML = done.length;
 			}
 		}
 
