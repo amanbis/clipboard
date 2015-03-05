@@ -8,13 +8,14 @@
 
 	<title>Clipboard | Getting sh*t done, since 1921</title>
 
-	<link rel="stylesheet" type="text/css" href-"css/default.css" />
+	<link rel="stylesheet" type="text/css" href-"css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	
 	<form action="#">
-    	<input type="text" id="itemInput" onkeypress="handle" />
+    	<input type="text" id="itemInput" placeholder="Add a task..." onkeypress="handle" />
 	</form>
 
 	<h3><span id="numTask">No</span> tasks on the Clipboard</h3>
@@ -63,7 +64,7 @@
 		    id++;
 			//list.appendChild(entry);
 			//Reset input to default value
-		    document.getElementById('itemInput').value = '';
+		    //document.getElementById('itemInput').value = '';
 
 		    checkbox.onclick = function() {
 			    if(checkbox.checked === true) {
@@ -117,11 +118,12 @@
 				document.getElementById('numTask').innerHTML = "No";
 			} else {
 				document.getElementById('numTask').innerHTML = tasks.length;
-				document.getElementById('numDone').innerHTML = done.length;
 			}
 
 			if(done.length === 0) {
 				document.getElementById('numDone').innerHTML = "No";
+			} else {
+				document.getElementById('numDone').innerHTML = done.length;
 			}
 		}
 
