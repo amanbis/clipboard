@@ -1,0 +1,97 @@
+html, body{
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* disable webkit tap highlight */
+	overflow-x: hidden;
+    height: 100%;
+}
+
+/* Body */
+
+body {
+	background-color: #F9F9F9;
+	font-family: 'Lato', sans-serif;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6, p {
+	color: #333;
+}
+
+/*Layout*/
+
+.container {
+	position: relative;
+	padding: 20px 20px;
+}
+
+@media only screen and (min-width : 760px) {
+    .container {
+    	padding: 20px 100px;
+    }
+}
+
+.enterTask {
+	margin: 2em 0;
+}
+
+/* Lists */
+
+ul, ol {
+	list-style: none;
+}
+
+/* Checkbox Inputs */
+
+input[type="checkbox"] {
+    margin: 0;
+    margin-right: 0.5em;
+    position: relative;
+    top: 0.09em;
+}
+
+/* Text Inputs */
+
+input[type="text"] {
+	display: block;
+	margin: 0;
+	padding: 0.5em;
+	width: 50%;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.125em;
+	color: #333;
+	appearance: none;
+	box-shadow: none;
+	border: none;
+	border-bottom: solid 0.2em #b6b6b6;
+	border-radius: none;
+	-moz-border-radius: none;
+	-webkit-border-radius: none;
+	background-color: #F9F9F9;
+	transition: border 0.3s;
+	-moz-transistion: border 0.3s;
+	-webkit-transition: border 0.3s;
+}
+
+input[type="text"]:focus {
+	outline: none;
+	border-bottom: solid 0.2em #FF9800;
+}
+
+/* Header */
+
+header {
+	width: 100%;
+	background-color: #009688;
+}
+
+.header-title {
+	padding: 1.25em 0 0.75em 0;
+	color: #F9F9F9;
+}
+
+@media only screen and (min-width : 760px) {
+    .header-title {
+    	font-size: 3.5em;
+    	font-weight: 300;
+    }
+}
